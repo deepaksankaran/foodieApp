@@ -1,5 +1,7 @@
 package com.foodieapp.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,4 +34,10 @@ public class Resturant {
 	
 	@Column(name="status")
 	private String status;//approved,not approved
+	
+	@Column(name="createdDate")
+	private Date createdDate;
+	
+	@Column(name="updatedDate")
+	private Date updatedDate;
 }

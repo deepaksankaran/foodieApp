@@ -1,5 +1,9 @@
 package com.foodieapp.model;
 
-public class ResturantRegResponse {
+import lombok.Data;
 
+@Data
+public class ResturantResponse {
+	
+	private String message;
 }
