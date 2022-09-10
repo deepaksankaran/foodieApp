@@ -8,7 +8,7 @@ public class FoodieAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FoodieAppApplication.class, args);
-		System.out.println("Hello Test APP");
+		System.out.println("Hello Sample APP");
 	}
 
 }
