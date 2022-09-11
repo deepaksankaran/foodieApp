@@ -59,6 +59,10 @@ public class UserServiceImpl implements UserService {
 			userResponse.setMessage("User information doesn't exist");
 		} else {
 			userData.setFirstName(userReqRequest.getFirstName());
+			userData.setLastName(userReqRequest.getLastName());
+			userData.setLocation(userReqRequest.getLocation());
+			userData.setPhone(userReqRequest.getPhone());
+			userData.setDob(userReqRequest.getDob());
 			userRepository.save(userData);
 			userResponse.setMessage("User information is successfully updated");
 		}

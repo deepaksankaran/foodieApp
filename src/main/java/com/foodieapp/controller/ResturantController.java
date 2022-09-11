@@ -31,7 +31,7 @@ public class ResturantController {
 			ResturantResponse resturantResponse=resturantService.save(restaurantRegRequest);		
 			return new ResponseEntity<ResturantResponse>(resturantResponse,HttpStatus.OK);
 		}
-		//get resturant  by resturant name
+		//get resturant by resturant name
 		@GetMapping("/get/{resturantName}")
 		public ResponseEntity<Resturant> getResturant(@PathVariable String resturantName) {
 			Resturant resturant=resturantService.getResturantData(resturantName);
