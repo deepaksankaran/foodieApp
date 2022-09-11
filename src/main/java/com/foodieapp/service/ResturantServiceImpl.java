@@ -35,7 +35,6 @@ public class ResturantServiceImpl implements ResturantService {
 	public static final String STATUS_NOT_APPROVED = "Not Approved";
 
 	@Override
-	@Transactional
 	public ResturantResponse save(RestaurantRequest restaurantRegRequest) {
 		ResturantResponse resturantResponse = new ResturantResponse();
 		Resturant resturantData = resturantRepository.findByRestName(restaurantRegRequest.getRestName());
