@@ -23,4 +23,6 @@ public interface ResturantService {
 
 	ResturantResponse updateStatus(RestaurantRequest restaurantRequest);
 
+	ResturantResponse deleteDishes(RestaurantRequest restaurantRequest);
+
 }

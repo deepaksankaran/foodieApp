@@ -162,7 +162,6 @@ public class ResturantServiceImpl implements ResturantService {
 		}
 		return resturantResponse;
 	}
-
 	@Override
 	public ResturantResponse updateStatus(RestaurantRequest restaurantRequest) {
 		Boolean isApproved = (restaurantRequest.getStatus()).equalsIgnoreCase(STATUS_APPROVED);
@@ -179,6 +178,33 @@ public class ResturantServiceImpl implements ResturantService {
 			resturantResponse.setMessage("Resturant information succssfully updated by Admin");
 		} else {
 			resturantResponse.setMessage("Resturant information doesn't exist");
+		}
+		return resturantResponse;
+	}
+
+	@Override
+	public ResturantResponse deleteDishes(RestaurantRequest restaurantRequest) {
+		ResturantResponse resturantResponse = new ResturantResponse();
+		Resturant resturant = resturantRepository.findByRestName(restaurantRequest.getRestName());
+		if (resturant == null) {
+			resturantResponse.setMessage("Resturant information doesn't exist");
+		} else {
+			List<DishRequest> dishRequest = restaurantRequest.getDishes();
+			if (dishRequest == null || dishRequest.size() == 0) {
+				System.out.println("Empty Dishes list");
+			} else {
+
+				dishRequest.forEach(dishObj -> {
+					Dishes disheData = dishesRepository.findByRestNameAndDishName(resturant.getRestName(),
+							dishObj.getDishName());
+					if (disheData != null) {
+						dishesRepository.delete(disheData);
+						resturantResponse.setMessage("Resturant Dishes information is successfully deleted");
+
+					}
+				});
+			}
+			
 		}
 		return resturantResponse;
 	}
